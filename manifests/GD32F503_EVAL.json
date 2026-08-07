@@ -1,0 +1,62 @@
+{
+    "name": "GigaDevice GD32F503V-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "MDK",
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32F503 (Cortex-M33, 252MHz)",
+            "RAM": "128KB internal SRAM",
+            "Flash": "1024KB internal",
+            "GPU": "None",
+            "Resolution": "240*320",
+            "Display Size": "3.2 inch",
+            "Interface": "8080",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "130 px/inch",
+            "Touch Pad": "Resistive touch (SPI)"
+        }
+    },
+    "description": "The GigaDevice GD32F503V-EVAL is an evaluation board based on a 252MHz ARM Cortex-M33 GD32F503VG microcontroller with FPU and DSP instructions. This project uses 1MB internal flash and 128KB internal SRAM. LVGL runs bare metal and renders to the board's 240x320 TFT display through the EXMC 16-bit parallel bus, using DMA to transfer the rendered frames to the display GRAM.",
+    "shortDescription": "GigaDevice GD32F503V-EVAL Cortex-M33 board with 240x320 parallel display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32F503_EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32F503V_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32f503v-eval?variant=58576795599180"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are MDK, IAR and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1"
+                },
+                {
+                    "name": "No",
+                    "value": "0",
+                    "default": "true"
+                }
+            ]
+        }
+    ]
+}

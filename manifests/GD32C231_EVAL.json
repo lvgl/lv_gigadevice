@@ -1,0 +1,62 @@
+{
+    "name": "GigaDevice GD32C231C-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "MDK",
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32C231 (Cortex-M23, 48MHz)",
+            "RAM": "12KB internal SRAM",
+            "Flash": "64KB internal",
+            "GPU": "None",
+            "Resolution": "240*320",
+            "Display Size": "2.2 inch",
+            "Interface": "SPI",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "180 px/inch",
+            "Touch Pad": "None"
+        }
+    },
+    "description": "The GigaDevice GD32C231C-EVAL is an evaluation board based on a 48MHz ARM Cortex-M23 GD32C231C8 microcontroller. This project uses 64KB internal flash and 12KB internal SRAM. LVGL renders to the board's 240x320 TFT display through the SPI interface, using DMA to transfer the rendered pixels to the display.",
+    "shortDescription": "GigaDevice GD32C231C-EVAL entry-level MCU with 240*320 SPI display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32C231EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32C231C_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32c231c-eval?variant=53039847211340"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are MDK, IAR and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1",
+                    "default": "true"
+                },
+                {
+                    "name": "No",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}

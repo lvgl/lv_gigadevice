@@ -1,0 +1,61 @@
+{
+    "name": "GigaDevice GD32VW553H-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32VW553 (RISC-V, 160MHz)",
+            "RAM": "320KB internal SRAM",
+            "Flash": "4096KB internal",
+            "GPU": "None",
+            "Resolution": "320*240",
+            "Display Size": "2.2 inch",
+            "Interface": "SPI",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "180 px/inch",
+            "Touch Pad": "None"
+        }
+    },
+    "description": "The GigaDevice GD32VW553H-EVAL is an evaluation board based on a 160MHz RISC-V GD32VW553HMQ7 microcontroller with Wi-Fi 6 and BLE 5.2 connectivity. This project uses 4MB on-chip flash and 320KB on-chip SRAM. LVGL renders to the board's 320x240 ILI9341 TFT display over SPI1 with DMA-based pixel streaming.",
+    "shortDescription": "GigaDevice GD32VW553H-EVAL RISC-V board with 320x240 SPI display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32VW553_EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32VW553H_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32vw553h-eval?variant=53011048759628"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are IAR Embedded Workbench for RISC-V and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1",
+                    "default": "true"
+                },
+                {
+                    "name": "No",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}

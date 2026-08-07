@@ -1,0 +1,62 @@
+{
+    "name": "GigaDevice GD32F470I-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "MDK",
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32F470 (Cortex-M4, 240MHz)",
+            "RAM": "192KB internal SRAM, 64KB TCM SRAM, 32768KB external SDRAM",
+            "Flash": "3072KB internal",
+            "GPU": "IPA",
+            "Resolution": "480*272",
+            "Display Size": "4.3 inch",
+            "Interface": "TLI",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "130 px/inch",
+            "Touch Pad": "Resistive touch (SPI)"
+        }
+    },
+    "description": "The GigaDevice GD32F470I-EVAL is an evaluation board based on a 240MHz ARM Cortex-M4 GD32F470IK microcontroller with FPU and DSP instructions. This project uses 3MB internal flash, 192KB internal SRAM, 64KB TCM SRAM, and 32MB external SDRAM. LVGL renders to the board's 480x272 TFT display through the TLI RGB parallel display controller, using the IPA image processing accelerator for graphics operations.",
+    "shortDescription": "GigaDevice GD32F470I-EVAL Cortex-M4 board with 480x272 RGB display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32F470_EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32F470I_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32f470i-eval?variant=58578013159756"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are MDK, IAR and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1",
+                    "default": "true"
+                },
+                {
+                    "name": "No",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}

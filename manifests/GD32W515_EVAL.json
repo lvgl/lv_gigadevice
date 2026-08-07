@@ -1,0 +1,62 @@
+{
+    "name": "GigaDevice GD32W515P-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "MDK",
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32W515 (Cortex-M33, 180MHz)",
+            "RAM": "448KB internal SRAM",
+            "Flash": "2048KB internal",
+            "GPU": "None",
+            "Resolution": "320*240",
+            "Display Size": "2.2 inch",
+            "Interface": "SPI",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "180 px/inch",
+            "Touch Pad": "None"
+        }
+    },
+    "description": "The GigaDevice GD32W515P-EVAL is an evaluation board based on a 180MHz ARM Cortex-M33 GD32W515PIQ6 microcontroller with FPU and DSP instructions. This project uses 2MB internal flash and 448KB internal SRAM. LVGL renders to the board's 320x240 TFT display through the SPI interface, using DMA to transfer the rendered pixels to the display.",
+    "shortDescription": "GigaDevice GD32W515P-EVAL Cortex-M33 board with SPI display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32W515_EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32W515P_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32w515p-eval?variant=53011037716812"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are MDK, IAR and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1",
+                    "default": "true"
+                },
+                {
+                    "name": "No",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}

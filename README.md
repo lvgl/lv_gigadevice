@@ -1,93 +1,80 @@
-# qt_for_mcus
+# LVGL on GigaDevice Development Boards
 
+Board manifests for [GigaDevice](https://www.gigadevice.com/) evaluation boards
+that are adapted to [LVGL](https://lvgl.io/).
 
+This repository does **not** contain application source code. It is a metadata
+repository: each supported GigaDevice board is described by one JSON manifest
+together with its board image and the vendor logo. LVGL consumes these
+manifests to present the boards publicly — for example in the
+[LVGL project creator](https://lvgl.io/tools/project-creator) — so that users
+can discover a GigaDevice board, see its MCU and display specifications, and
+follow the steps to build the matching LVGL demo.
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## Repository layout
 
 ```
-cd existing_repo
-git remote add origin http://172.21.15.151/gui/qt_for_mcus/qt_for_mcus.git
-git branch -M main
-git push -uf origin main
+lv_gigadevice/
+├── manifests/      # one JSON manifest per board — the actual content of this repo
+├── board_images/   # board photos referenced by the manifests
+├── logo_images/    # GigaDevice logo referenced by the manifests
+└── .github/        # CI workflows
 ```
 
-## Integrate with your tools
+## Supported boards
 
-- [ ] [Set up project integrations](http://172.21.15.151/gui/qt_for_mcus/qt_for_mcus/-/settings/integrations)
+| Board | Manifest | MCU | Display |
+| --- | --- | --- | --- |
+| GD32C231-EVAL | [manifests/GD32C231_EVAL.json](manifests/GD32C231_EVAL.json) | GD32C231 (Cortex-M23, 48MHz) | 2.2" 240x320, SPI |
+| GD32F470-EVAL | [manifests/GD32F470_EVAL.json](manifests/GD32F470_EVAL.json) | GD32F470 (Cortex-M4, 240MHz) | 4.3" 480x272, TLI |
+| GD32F503-EVAL | [manifests/GD32F503_EVAL.json](manifests/GD32F503_EVAL.json) | GD32F503 (Cortex-M33, 252MHz) | 3.2" 240x320, 8080|
+| GD32F527-EVAL | [manifests/GD32F527_EVAL.json](manifests/GD32F527_EVAL.json) | GD32F527 (Cortex-M33, 200MHz) | 4.3" 480x272, TLI |
+| GD32F5HC-EVAL | [manifests/GD32F5HC_EVAL.json](manifests/GD32F5HC_EVAL.json) | GD32F5HC (Cortex-M33, 200MHz) | 2.2" 240x320, SPI |
+| GD32H759-EVAL | [manifests/GD32H759_EVAL.json](manifests/GD32H759_EVAL.json) | GD32H759 (Cortex-M7, 600MHz) | 4.3" 480x272, TLI|
+| GD32VW553-EVAL | [manifests/GD32VW553_EVAL.json](manifests/GD32VW553_EVAL.json) | GD32VW553 (RISC-V, 160MHz) | 2.2" 320x240, SPI |
+| GD32W515-EVAL | [manifests/GD32W515_EVAL.json](manifests/GD32W515_EVAL.json) | GD32W515 (Cortex-M33, 180MHz) | 2.2" 320x240, SPI|
 
-## Collaborate with your team
+## Manifest format
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+Every file in [manifests](manifests) is a single JSON object. These are the
+fields LVGL reads when rendering a board entry.
 
-## Test and Deploy
+| Field | Purpose |
+| --- | --- |
+| `name` | Board name shown to the user |
+| `maintainer` | Who maintains the LVGL adaptation |
+| `hostOperatingsystem` | Host operating systems the toolchain runs on |
+| `environment` | Supported IDEs / build environments (MDK, IAR, GD32EmbeddedBuilder) |
+| `hardware.chipVendor`, `hardware.manufacturer` | Chip vendor and board manufacturer |
+| `hardware.specs` | MCU, RAM, Flash, GPU and display parameters (resolution, size, interface, color depth, technology, DPI, touch pad) |
+| `description` | Long description of the board and how LVGL runs on it |
+| `shortDescription` | One-line summary used in listings |
+| `urlToClone` | Git repository holding the LVGL demo project for this board |
+| `logos`, `image` | Raw URLs of the vendor logo and the board photo in this repository |
+| `buy_now_links` | Where the board can be purchased |
+| `branches` | LVGL release branches the project supports |
+| `getStartedInstructions` | Steps to install an IDE, clone the project, build it and download it |
+| `settings` | Options the project creator exposes when generating the project |
 
-Use the built-in continuous integration in GitLab.
+Display values in `hardware.specs` must come from the panel datasheet of the
+board rather than from an estimate — `DPI` is derived from the pixel pitch and
+`Technology` is the panel technology type (`a-Si TFT`, `IPS`, …).
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Adding a board
 
-***
+1. Add the board photo to [board_images](board_images), named after the board
+   (for example `GD32F470I_EVAL.png`).
+2. Copy an existing manifest to `manifests/<BOARD>.json` and fill in every
+   field for the new board.
+3. Point `image` and `logos` at the raw URLs of the files in this repository,
+   and `urlToClone` at the repository that holds the board's LVGL demo project.
+4. Check that the file is valid JSON and add the board to the
+   [Supported boards](#supported-boards) table above.
 
-# Editing this README
+## Getting started with a board
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+The manifests target IDE-based workflows. For a listed board:
 
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+1. Install one of the supported IDEs: MDK, IAR or GD32EmbeddedBuilder.
+2. Clone the source code from the repository given by `urlToClone`.
+3. Build the code with the IDE and download it to the development board.

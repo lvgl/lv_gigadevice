@@ -1,0 +1,62 @@
+{
+    "name": "GigaDevice GD32H759I-EVAL",
+    "maintainer": "GigaDevice",
+    "hostOperatingsystem": [
+        "Windows",
+        "Linux",
+        "MacOS"
+    ],
+    "environment": [
+        "MDK",
+        "IAR",
+        "GD32EmbeddedBuilder"
+    ],
+    "hardware": {
+        "chipVendor": "GigaDevice",
+        "manufacturer": "GigaDevice",
+        "specs": {
+            "MCU": "GD32H759 (Cortex-M7, 600MHz)",
+            "RAM": "1024KB internal SRAM, 32768KB external SDRAM",
+            "Flash": "3840KB internal",
+            "GPU": "IPA",
+            "Resolution": "480*272",
+            "Display Size": "4.3 inch",
+            "Interface": "TLI",
+            "Color Depth": "16-bit RGB565",
+            "Technology": "a-Si TFT",
+            "DPI": "130 px/inch",
+            "Touch Pad": "Capacitive touch(I2C)"
+        }
+    },
+    "description": "The GigaDevice GD32H759I-EVAL is an evaluation board based on a 600MHz ARM Cortex-M7 GD32H759I microcontroller with FPU and DSP instructions. This project uses 3840KB internal flash, 1024KB internal SRAM, and 32MB external SDRAM. LVGL V8.3 renders to the board's 480x272 TFT display through the TLI RGB parallel display controller, using the IPA image processing accelerator for graphics operations.",
+    "shortDescription": "GigaDevice GD32H759I-EVAL Cortex-M7 board with 480*272 RGB  display",
+    "urlToClone": "https://github.com/GigaDevice-GD32-MCU/GD32H759_EVAL_LVGL",
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/logo_images/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_gigadevice/master/board_images/GD32H759I_EVAL.webp",
+    "buy_now_links": [
+        "https://gigadevice.eu/products/gd32h759i-eval?variant=57778290491724"
+    ],
+    "branches": [
+        "release/v8.3"
+    ],
+    "getStartedInstructions": "1. Install an IDE. The supported IDEs are MDK, IAR and GD32EmbeddedBuilder. 2. Clone the source code from the corresponding Git repository. 3. Build the code with the IDE and download it to the development board.",
+    "settings": [
+        {
+            "type": "dropdown",
+            "label": "Show performance monitor",
+            "options": [
+                {
+                    "name": "Yes",
+                    "value": "1",
+                    "default": "true"
+                },
+                {
+                    "name": "No",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}
