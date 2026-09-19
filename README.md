@@ -18,6 +18,9 @@ and a getting started guide to create ready-to-use LVGL projects for the support
 
 ## Getting started with a board
 
+> [!WARNING]
+> The projects still use **LVGL v8.3.11**. They have not been migrated to LVGL v9 yet.
+
 ### Prerequisites:
 
 Install one of the supported IDEs:
