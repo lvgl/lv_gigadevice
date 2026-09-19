@@ -1,25 +1,7 @@
-# LVGL on GigaDevice Development Boards
+# LVGL support for GigaDevice Development Boards
 
-Board manifests for [GigaDevice](https://www.gigadevice.com/) evaluation boards
-that are adapted to [LVGL](https://lvgl.io/).
-
-This repository does **not** contain application source code. It is a metadata
-repository: each supported GigaDevice board is described by one JSON manifest
-together with its board image and the vendor logo. LVGL consumes these
-manifests to present the boards publicly — for example in the
-[LVGL project creator](https://lvgl.io/tools/project-creator) — so that users
-can discover a GigaDevice board, see its MCU and display specifications, and
-follow the steps to build the matching LVGL demo.
-
-## Repository layout
-
-```
-lv_gigadevice/
-├── manifests/      # one JSON manifest per board — the actual content of this repo
-├── board_images/   # board photos referenced by the manifests
-├── logo_images/    # GigaDevice logo referenced by the manifests
-└── .github/        # CI workflows
-```
+This repository contains descriptions for [GigaDevice](https://www.gigadevice.com/) development boards as [manifest JSON files](manifests)
+and a getting started guide to create ready-to-use LVGL projects for the supported development boards.
 
 ## Supported boards
 
@@ -34,31 +16,20 @@ lv_gigadevice/
 | GD32VW553-EVAL | [manifests/GD32VW553_EVAL.json](manifests/GD32VW553_EVAL.json) | GD32VW553 (RISC-V, 160MHz) | 2.2" 320x240, SPI |
 | GD32W515-EVAL | [manifests/GD32W515_EVAL.json](manifests/GD32W515_EVAL.json) | GD32W515 (Cortex-M33, 180MHz) | 2.2" 320x240, SPI|
 
-## Manifest format
+## Getting started with a board
 
-Every file in [manifests](manifests) is a single JSON object. These are the
-fields LVGL reads when rendering a board entry.
+### Prerequisites:
 
-| Field | Purpose |
-| --- | --- |
-| `name` | Board name shown to the user |
-| `maintainer` | Who maintains the LVGL adaptation |
-| `hostOperatingsystem` | Host operating systems the toolchain runs on |
-| `environment` | Supported IDEs / build environments (MDK, IAR, GD32EmbeddedBuilder) |
-| `hardware.chipVendor`, `hardware.manufacturer` | Chip vendor and board manufacturer |
-| `hardware.specs` | MCU, RAM, Flash, GPU and display parameters (resolution, size, interface, color depth, technology, DPI, touch pad) |
-| `description` | Long description of the board and how LVGL runs on it |
-| `shortDescription` | One-line summary used in listings |
-| `urlToClone` | Git repository holding the LVGL demo project for this board |
-| `logos`, `image` | Raw URLs of the vendor logo and the board photo in this repository |
-| `buy_now_links` | Where the board can be purchased |
-| `branches` | LVGL release branches the project supports |
-| `getStartedInstructions` | Steps to install an IDE, clone the project, build it and download it |
-| `settings` | Options the project creator exposes when generating the project |
+Install one of the supported IDEs:
+- [MDK](https://www.keil.com/)
+- [IAR](https://www.iar.com/)
+- [GD32EmbeddedBuilder](https://www.gd32mcu.com/en/download/7)
 
-Display values in `hardware.specs` must come from the panel datasheet of the
-board rather than from an estimate — `DPI` is derived from the pixel pitch and
-`Technology` is the panel technology type (`a-Si TFT`, `IPS`, …).
+### Getting a ready-to-use project
+
+1. Visit [GigaDevice's GitHub Organization](https://github.com/GigaDevice-GD32-MCU/?q=_LVGL&type=all&language=&sort=) and search for `LVGL` among the repositories
+2. Clone a repository for your development board
+3. Build the code with the IDE and flash it to the development board.
 
 ## Adding a board
 
@@ -71,10 +42,6 @@ board rather than from an estimate — `DPI` is derived from the pixel pitch and
 4. Check that the file is valid JSON and add the board to the
    [Supported boards](#supported-boards) table above.
 
-## Getting started with a board
+## Support
 
-The manifests target IDE-based workflows. For a listed board:
-
-1. Install one of the supported IDEs: MDK, IAR or GD32EmbeddedBuilder.
-2. Clone the source code from the repository given by `urlToClone`.
-3. Build the code with the IDE and download it to the development board.
+In case of any issues, please open an issue in this repository.
